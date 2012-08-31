@@ -721,6 +721,46 @@
                 event.preventDefault();
             }
         }, false);
+
+        //Handelers for mousewheel events IE9, Chrome, Safari, Opera
+        document.addEventListener("mousewheel", function ( e ) {
+            var e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            switch(delta){
+                    case 1: // up
+                             api.prev();
+                             break; 
+                    case -1: // down
+                             api.next();
+                             break;                                           
+            }
+
+            //if (delta===1) {api.next();}
+            //else if (delta===-1) api.next();
+            console.log(delta)                
+            e.preventDefault();
+           
+        }, false);
+
+        //Firefox
+        document.addEventListener("DOMMouseScroll", function ( e ) {
+            var e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            switch(delta){
+                    case 1: // up
+                             api.prev();
+                             break; 
+                    case -1: // down
+                             api.next();
+                             break;                                           
+            }
+
+            //if (delta===1) {api.next();}
+            //else if (delta===-1) api.next();
+            console.log(delta)                
+            e.preventDefault();
+           
+        }, false);
         
         // delegated handler for clicking on the links to presentation steps
         document.addEventListener("click", function ( event ) {

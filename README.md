@@ -1,3 +1,5 @@
+This is a fork of impress.js that adds mousewheel support to navigate the slides.
+
 impress.js
 ============
 
